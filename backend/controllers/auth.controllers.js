@@ -40,11 +40,11 @@ res.cookie("token",token,{
 }
 export const login=async (req,res)=>{
     try {
-     const {email,password}=req.body
-     const user=await User.findOne({email})
-     if(!user){
-         return res.status(400).json({message:"user does not exist"})
-     }
+    const {email,password}=req.body
+    const user=await User.findOne({email})
+    if(!user){
+        return res.status(400).json({message:"user does not exist"})
+    }
 
  const isMatch=await bcrypt.compare(password,user.password)
  if(!isMatch){
